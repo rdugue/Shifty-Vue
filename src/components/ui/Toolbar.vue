@@ -1,7 +1,7 @@
 <template>
   <v-toolbar dark class="primary">
     <v-toolbar-side-icon></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">ScheduleSwapper</v-toolbar-title>
+    <v-toolbar-title class="white--text">Shifty</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-icon>exit_to_app</v-icon>

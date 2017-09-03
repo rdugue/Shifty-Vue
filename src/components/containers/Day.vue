@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs12 sm6 offset-sm3>
-      <v-card>
+      <v-card class="deep-purple">
         <v-card-title primary-title>
           <div class="headline">{{ day }}</div>
         </v-card-title>
