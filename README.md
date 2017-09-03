@@ -1,4 +1,4 @@
-# shifty-vue
+# Shifty-vue
 
 > Shifty: An HR tool for hourly shift management.
 
