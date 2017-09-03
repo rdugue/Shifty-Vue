@@ -1,0 +1,6 @@
+export const GET_USER = 'GET_USER'
+export const GET_SHIFTS = 'GET_SHIFTS'
+export const DELETE_SHIFT = 'DELETE_SHIFT'
+export const UPDATE_SHIFT = 'UPDATE_SHIFT'
+export const GET_TRADES = 'GET_TRADES'
+export const TAKE_SHIFTS = 'TAKE_SHIFTS'

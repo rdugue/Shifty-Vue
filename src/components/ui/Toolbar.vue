@@ -1,0 +1,20 @@
+<template>
+  <v-toolbar dark class="primary">
+    <v-toolbar-side-icon></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">ScheduleSwapper</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>exit_to_app</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
+  </v-toolbar>
+</template>
+
+<script>
+export default {
+  //
+}
+</script>
+
