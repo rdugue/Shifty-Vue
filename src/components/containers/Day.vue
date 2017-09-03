@@ -1,6 +1,5 @@
 <template>
-  <v-layout row>
-    <v-flex xs6 sm6 offset-sm3>
+    <v-flex xs4 sm4 offset-sm1>
       <v-card class="deep-purple">
         <v-card-title primary-title>
           <div class="headline">{{ day }}</div>
@@ -12,7 +11,6 @@
         :key="shift.id"></shift>
       </v-card>
     </v-flex>
-  </v-layout>
 </template>
 
 <script>
@@ -25,7 +23,7 @@ export default {
     shifts: 'allShifts'
   }),
   created () {
-    console.log(this.$store.getters.loggedInUser)
+    console.log(this.$store.state.user)
     this.$store.dispatch('getShifts', 'AbleSoft')
   },
   components: {

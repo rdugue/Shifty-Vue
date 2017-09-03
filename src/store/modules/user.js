@@ -12,20 +12,23 @@ const getters = {
 const actions = {
   get ({ commit }, creds) {
     employees.loginUser(creds)
-    .catch(reason => { console.log(reason) })
     .then(body => {
-      const user = body.data
-      commit(types.GET_USER, { user })
-      // set jwt toke in browser
-      window.localStorage.setItem('JWT_TOKEN', body.token)
+      if (body.error) {
+        console.log(body.error)
+      } else {
+        const user = body.data
+        commit(types.GET_USER, { user })
+        window.localStorage.setItem('JWT_TOKEN', body.token)
+      }
     })
+    .catch(reason => { console.log(reason) })
   }
 }
 
 const mutations = {
   [types.GET_USER] (state, { user }) {
     state.user = user
-    // console.log(getters.loggedInUser(state))
+    console.log(state.user)
   }
 }
 

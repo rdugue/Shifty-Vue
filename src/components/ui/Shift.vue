@@ -1,4 +1,5 @@
 <template>
+<v-container>
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card class="lime">
@@ -17,17 +18,25 @@
           <v-btn icon>
             <v-icon>swap_horiz</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon @click="deleteShift(shift.id)">
             <v-icon>delete_forever</v-icon>
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
+</v-container>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['shift']
+  props: ['shift'],
+  methods: {
+    ...mapActions({
+      deleteShift: 'deleteShift'
+    })
+  }
 }
 </script>

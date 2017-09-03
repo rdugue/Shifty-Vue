@@ -3,6 +3,7 @@
     <drawer v-if="drawer"></drawer>
     <toolbar ></toolbar>
     <main>
+      <shift-form></shift-form>
       <week></week>
     </main>
     <v-footer class="primary">
@@ -15,13 +16,15 @@
 import Drawer from '../ui/Drawer'
 import Toolbar from '../ui/Toolbar'
 import Week from './Week'
+import ShiftForm from '../ui/ShiftForm'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     'drawer': Drawer,
     'toolbar': Toolbar,
-    'week': Week
+    'week': Week,
+    'shift-form': ShiftForm
   },
   computed: mapGetters({
     drawer: 'drawerOpen'
