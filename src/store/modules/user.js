@@ -12,6 +12,7 @@ const getters = {
 const actions = {
   get ({ commit }, creds) {
     employees.loginUser(creds)
+    .catch(reason => { console.log(reason) })
     .then(body => {
       const user = body.data
       commit(types.GET_USER, { user })

@@ -12,6 +12,7 @@ const getters = {
 const actions = {
   getShifts ({ commit }, company) {
     shifts.getAllShifts(company)
+    .catch(reason => { console.log(reason) })
     .then(body => {
       const shifts = body.data
       commit(types.GET_SHIFTS, { shifts })

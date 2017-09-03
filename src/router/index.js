@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-import Week from '@/components/containers/Week'
+import Main from '@/components/containers/Main'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Week',
-      component: Week
+      name: 'Main',
+      component: Main
     },
     {
       path: '/login',
