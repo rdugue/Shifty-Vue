@@ -8,12 +8,14 @@
               <h3 class="mb-0 white--text">Schedule</h3>
             </div>
           </v-card-title>
+          <v-container>
           <v-layout row wrap>
             <day
               v-for="d in days"
               :day="d"
               :key="d"></day>
           </v-layout>
+          </v-container>
         </v-card>
       </v-flex>
     </v-layout>

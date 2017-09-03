@@ -1,4 +1,5 @@
 <template>
+<v-container>
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card class="lime">
@@ -24,6 +25,7 @@
       </v-card>
     </v-flex>
   </v-layout>
+</v-container>
 </template>
 
 <script>
