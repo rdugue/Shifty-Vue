@@ -17,7 +17,7 @@
           <v-btn icon>
             <v-icon>swap_horiz</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon @click="deleteShift(shift.id)">
             <v-icon>delete_forever</v-icon>
           </v-btn>
         </v-card-actions>
@@ -27,7 +27,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['shift']
+  props: ['shift'],
+  methods: {
+    ...mapActions({
+      deleteShift: 'deleteShift'
+    })
+  }
 }
 </script>
