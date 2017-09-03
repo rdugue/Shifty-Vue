@@ -1,6 +1,6 @@
 <template>
   <v-toolbar dark class="primary">
-    <v-toolbar-side-icon></v-toolbar-side-icon>
+    <v-toolbar-side-icon @click="toggleDrawer()"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">Shifty</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
@@ -13,8 +13,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
-  //
+  methods: mapMutations({
+    toggleDrawer: 'toggle'
+  })
 }
 </script>
 
