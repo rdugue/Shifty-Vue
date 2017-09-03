@@ -24,11 +24,6 @@ export default {
   computed: mapGetters({
     shifts: 'allShifts'
   }),
-  data () {
-    return {
-      day: this.day
-    }
-  },
   created () {
     console.log(this.$store.getters.loggedInUser)
     this.$store.dispatch('getShifts', 'AbleSoft')

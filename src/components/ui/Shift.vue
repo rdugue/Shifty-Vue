@@ -28,18 +28,6 @@
 
 <script>
 export default {
-  props: ['shift'],
-  data () {
-    return {
-      shift: {
-        id: this.shift.id,
-        start_time: this.shift.start_time,
-        end_time: this.shift.end_time,
-        role: this.shift.role,
-        employee: this.shift.employee,
-        day: this.shift.day
-      }
-    }
-  }
+  props: ['shift']
 }
 </script>
