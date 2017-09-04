@@ -3,7 +3,7 @@
     <v-toolbar-side-icon @click="toggleDrawer()"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">Shifty</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn icon>
+    <v-btn icon @click="logOut()">
       <v-icon>exit_to_app</v-icon>
     </v-btn>
     <v-btn icon>
@@ -14,11 +14,18 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import router from '../../router'
 
 export default {
-  methods: mapMutations({
-    toggleDrawer: 'toggle'
-  })
+  methods: {
+    logOut: () => {
+      window.localStorage.clear()
+      router.push('/login')
+    },
+    ...mapMutations({
+      toggleDrawer: 'toggle'
+    })
+  }
 }
 </script>
 
