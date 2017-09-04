@@ -1,14 +1,15 @@
 <template>
+<v-container fluid>
     <v-layout>
         <v-flex xs12 sm6 offset-sm3>
             <v-card>
+                <form>
                 <v-card-text>
                     <v-container fluid>
                         <v-layout row>
                             <v-flex xs12>
                                 <v-text-field 
                                     v-model="form.company"
-                                    v-bind:rules="rules.company"
                                     v-validate="'required'"
                                     name="company" 
                                     label="Company Id" 
@@ -19,7 +20,6 @@
                             <v-flex xs12>
                                 <v-text-field
                                     v-model="form.userId"
-                                    v-bind:rules="rules.userId"
                                     v-validate="'required'"
                                     name="userId" 
                                     label="Employee Id" 
@@ -30,7 +30,6 @@
                             <v-flex xs12>
                                 <v-text-field
                                     v-model="form.password"
-                                    v-bind:rules="rules.company"
                                     v-validate="'required'"
                                     name="password" 
                                     label="Password"
@@ -44,9 +43,11 @@
                     <v-btn flat>Register Here</v-btn>
                     <v-btn primary :disabled="isNotFilled" @click="login(form)">Login</v-btn>
                 </v-card-actions>
+                </form>
             </v-card>
         </v-flex>
     </v-layout>
+    </v-container>
 </template>
 
 <script>
@@ -64,17 +65,12 @@ export default {
         userId: '',
         password: ''
       },
-      isNotFilled: true,
-      rules: {
-        company: [],
-        userId: [],
-        password: []
-      }
+      isNotFilled: true
     }
   },
   methods: {
     ...mapActions({
-      login: 'get'
+      login: 'login'
     })
   },
   watch: {

@@ -1,5 +1,6 @@
 import * as types from '../mutation-types'
 import employees from '../../api/employees'
+import router from '../../router'
 
 const state = {
   user: {}
@@ -10,7 +11,7 @@ const getters = {
 }
 
 const actions = {
-  get ({ commit }, creds) {
+  login ({ commit }, creds) {
     employees.loginUser(creds)
     .then(body => {
       if (body.error) {
@@ -19,6 +20,7 @@ const actions = {
         const user = body.data
         commit(types.GET_USER, { user })
         window.localStorage.setItem('JWT_TOKEN', body.token)
+        router.push('/')
       }
     })
     .catch(reason => { console.log(reason) })
