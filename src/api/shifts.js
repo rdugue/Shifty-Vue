@@ -11,8 +11,8 @@ export default {
     .then(response => response.json())
     .catch(reason => { throw reason })
   },
-  updateShift (id, shift) {
-    return api.put(`/api/shifts/${id}`, shift)
+  updateShift (shift) {
+    return api.put(`/api/shifts/${shift.id}`, shift)
     .then(response => response.json())
     .catch(reason => { throw reason })
   },

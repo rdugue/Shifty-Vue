@@ -46,6 +46,18 @@ const actions = {
       }
     })
     .catch(reason => { console.log(reason) })
+  },
+  updateShift ({ commit }, shift) {
+    shifts.updateShift(shift)
+    .then(body => {
+      if (body.error) {
+        console.log(body.error)
+      } else {
+        const shift = body.data
+        commit(types.UPDATE_SHIFT, { shift })
+      }
+    })
+    .catch(reason => { console.log(reason) })
   }
 }
 
@@ -58,6 +70,10 @@ const mutations = {
   },
   [types.DELETE_SHIFT] (state, { shift }) {
     state.shifts = state.shifts.filter(current => current.id !== shift.id)
+  },
+  [types.UPDATE_SHIFT] (state, { shift }) {
+    state.shifts = state.shifts.filter(current => current.id !== shift.id)
+    state.shifts.push(shift)
   }
 }
 
