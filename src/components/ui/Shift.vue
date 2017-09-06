@@ -53,7 +53,7 @@
             <v-btn icon @click="toggleEdit()">
               <v-icon>create</v-icon>
             </v-btn>
-            <v-btn icon>
+            <v-btn icon @click="makeSwapable()">
               <v-icon>swap_horiz</v-icon>
             </v-btn>
             <v-btn icon @click="deleteShift(shift.id)">
@@ -74,7 +74,7 @@ import VeeValidate from 'vee-validate'
 Vue.use(VeeValidate)
 
 export default {
-  props: ['shift'],
+  props: ['shift', 'swapScreen'],
   methods: {
     toggleEdit () {
       if (this.$data.editMode) {
@@ -89,6 +89,11 @@ export default {
         })
       }
       this.$data.editMode = !this.$data.editMode
+    },
+    makeSwapable () {
+      this.shift.tradeable = true
+      this.$store.dispatch('updateShift', this.shift)
+      console.log(this.shift)
     },
     ...mapActions({
       deleteShift: 'deleteShift'

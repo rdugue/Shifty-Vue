@@ -6,9 +6,14 @@
         </v-card-title>
         <shift
         v-for="shift in shifts"
-        v-if="shift.day === day"
+        v-if="shift.day === day && !swapScreen"
         :shift="shift"
         :key="shift.id"></shift>
+        <shift
+        v-for="swap in swaps"
+        v-if="swap.day === day && swapScreen"
+        :shift="swap"
+        :key="swap.id"></shift>
       </v-card>
     </v-flex>
 </template>
@@ -18,12 +23,14 @@ import { mapGetters } from 'vuex'
 import Shift from '../ui/Shift'
 
 export default {
-  props: ['day'],
+  props: ['day', 'swapScreen'],
   computed: mapGetters({
-    shifts: 'allShifts'
+    shifts: 'allShifts',
+    swaps: 'allSwaps',
+    user: 'loggedInUser'
   }),
   created () {
-    console.log(this.$store.state.user)
+    console.log(this.user)
     this.$store.dispatch('getShifts', 'AbleSoft')
   },
   components: {

@@ -3,8 +3,8 @@
     <drawer v-if="drawer"></drawer>
     <toolbar ></toolbar>
     <main>
-      <shift-form></shift-form>
-      <week></week>
+      <shift-form class="mb-0 pb-0"></shift-form>
+      <week class="pt-0 mt-0"></week>
     </main>
     <v-footer class="primary">
       <span class="white--text">© 2017</span>
