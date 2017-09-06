@@ -13,6 +13,7 @@
         v-for="swap in swaps"
         v-if="swap.day === day && swapScreen"
         :shift="swap"
+        :swapScreen="swapScreen"
         :key="swap.id"></shift>
       </v-card>
     </v-flex>
