@@ -53,8 +53,11 @@
             <v-btn icon @click="toggleEdit()">
               <v-icon>create</v-icon>
             </v-btn>
-            <v-btn icon @click="makeSwapable()">
+            <v-btn icon @click="makeSwapable()" v-if="!swapScreen">
               <v-icon>swap_horiz</v-icon>
+            </v-btn>
+            <v-btn icon @click="takeShift()" v-if="swapScreen">
+              <v-icon>note_add</v-icon>
             </v-btn>
             <v-btn icon @click="deleteShift(shift.id)">
               <v-icon>delete_forever</v-icon>
@@ -82,6 +85,9 @@ export default {
         .then(result => {
           if (result) {
             this.shift.day = this.$data.day_local
+            if (this.swapScreen) {
+              this.shift.tradeable = false
+            }
             this.$store.dispatch('updateShift', this.shift)
           } else {
             this.$data.editMode = false
@@ -89,6 +95,10 @@ export default {
         })
       }
       this.$data.editMode = !this.$data.editMode
+    },
+    takeShift () {
+      this.shift.tradeable = false
+      this.$store.dispatch('updateShift', this.shift)
     },
     makeSwapable () {
       this.shift.tradeable = true
