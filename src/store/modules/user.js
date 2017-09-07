@@ -3,7 +3,7 @@ import employees from '../../api/employees'
 import router from '../../router'
 
 const state = {
-  user: {}
+  user: { }
 }
 
 const getters = {

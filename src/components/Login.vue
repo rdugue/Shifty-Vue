@@ -1,13 +1,10 @@
 <template>
 <v-container fluid>
-    <v-layout>
+    <v-layout row wrap>
         <v-flex xs12 sm6 offset-sm3>
-            <v-card>
-                <form>
-                <v-card-text>
-                    <v-container fluid>
-                        <v-layout row>
-                            <v-flex xs12>
+            <form class="lime">
+                <v-layout row wrap>
+                            <v-flex xs10 offset-sm1>
                                 <v-text-field 
                                     v-model="form.company"
                                     v-validate="'required'"
@@ -15,9 +12,7 @@
                                     label="Company Id" 
                                     single-line></v-text-field>
                             </v-flex>
-                        </v-layout>
-                        <v-layout row>
-                            <v-flex xs12>
+                            <v-flex xs10 offset-sm1>
                                 <v-text-field
                                     v-model="form.userId"
                                     v-validate="'required'"
@@ -25,9 +20,7 @@
                                     label="Employee Id" 
                                     single-line></v-text-field>
                             </v-flex>
-                        </v-layout>
-                        <v-layout row>
-                            <v-flex xs12>
+                            <v-flex xs10 offset-sm1>
                                 <v-text-field
                                     v-model="form.password"
                                     v-validate="'required'"
@@ -36,15 +29,12 @@
                                     type="password"
                                     single-line></v-text-field>
                             </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn flat>Register Here</v-btn>
-                    <v-btn primary :disabled="isNotFilled" @click="login(form)">Login</v-btn>
-                </v-card-actions>
+                            <v-flex xs10 offset-sm6>
+                                <v-btn flat>Register Here</v-btn>
+                                <v-btn primary :disabled="isNotFilled" @click="login(form)">Login</v-btn>
+                            </v-flex>
+                </v-layout>
                 </form>
-            </v-card>
         </v-flex>
     </v-layout>
     </v-container>
