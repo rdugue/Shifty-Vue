@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 
@@ -78,6 +78,9 @@ Vue.use(VeeValidate)
 
 export default {
   props: ['shift', 'swapScreen'],
+  computed: mapGetters({
+    user: 'loggedInUser'
+  }),
   methods: {
     toggleEdit () {
       if (this.$data.editMode) {
@@ -98,6 +101,7 @@ export default {
     },
     takeShift () {
       this.shift.tradeable = false
+      this.shift.employee = `${this.user.first_name} ${this.user.last_name}`
       this.$store.dispatch('updateShift', this.shift)
     },
     makeSwapable () {

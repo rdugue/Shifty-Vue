@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/containers/Main'
+import Dashboard from '@/components/containers/Dashboard'
 
 Vue.use(VueRouter)
 
@@ -18,7 +19,14 @@ export default new VueRouter({
         } else {
           next('/login')
         }
-      }
+      },
+      children: [
+        {
+          path: 'dashboard',
+          name: 'Dashboard',
+          component: Dashboard
+        }
+      ]
     },
     {
       path: '/login',
