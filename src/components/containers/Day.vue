@@ -32,7 +32,7 @@ export default {
   }),
   created () {
     console.log(this.user)
-    this.$store.dispatch('getShifts', 'AbleSoft')
+    this.$store.dispatch('getShifts', this.user.company)
   },
   components: {
     'shift': Shift
