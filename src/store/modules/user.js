@@ -30,7 +30,6 @@ const actions = {
 const mutations = {
   [types.GET_USER] (state, { user }) {
     state.user = user
-    console.log(state.user)
   }
 }
 

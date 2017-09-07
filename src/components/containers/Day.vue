@@ -31,7 +31,6 @@ export default {
     user: 'loggedInUser'
   }),
   created () {
-    console.log(this.user)
     this.$store.dispatch('getShifts', this.user.company)
   },
   components: {

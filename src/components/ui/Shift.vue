@@ -107,7 +107,6 @@ export default {
     makeSwapable () {
       this.shift.tradeable = true
       this.$store.dispatch('updateShift', this.shift)
-      console.log(this.shift)
     },
     ...mapActions({
       deleteShift: 'deleteShift'
