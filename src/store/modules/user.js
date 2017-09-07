@@ -20,7 +20,7 @@ const actions = {
         const user = body.data
         commit(types.GET_USER, { user })
         window.localStorage.setItem('JWT_TOKEN', body.token)
-        router.push('/')
+        router.push({ name: 'Dashboard' })
       }
     })
     .catch(reason => { console.log(reason) })
