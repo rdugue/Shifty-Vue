@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "csv-parse": "^1.2.1",
     "js-cookie": "^2.1.4",
     "vee-validate": "^2.0.0-rc.14",
     "vue": "^2.4.2",
