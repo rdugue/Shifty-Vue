@@ -4,7 +4,7 @@
       <v-flex xs6 offset-sm3>
         <form class="lime">
           <v-layout row wrap>
-            <v-flex xs6>
+            <v-flex xs4 offset-sm1>
               <v-dialog persistent v-model="modal1" lazy>
                 <v-text-field slot="activator" label="Start" v-model="start" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
                 <v-time-picker v-model="start" actions>
@@ -17,7 +17,7 @@
                 </v-time-picker>
               </v-dialog>
             </v-flex>
-            <v-flex xs6>
+            <v-flex xs4 offset-sm1>
               <v-dialog persistent v-model="modal2" lazy>
                 <v-text-field slot="activator" label="End" v-model="end" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
                 <v-time-picker v-model="end" actions>
