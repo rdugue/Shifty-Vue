@@ -6,10 +6,8 @@ import App from './App'
 import store from './store'
 import router from './router'
 import Vuetify from 'vuetify'
-import VueClip from 'vue-clip'
 
 Vue.use(Vuetify)
-Vue.use(VueClip)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

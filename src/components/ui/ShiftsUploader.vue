@@ -5,22 +5,15 @@
         <v-card class="lime">
           <v-layout>
             <v-flex xs8 offset-sm2>
-              <vue-clip :options="options" :on-added-file="addedFile" class="uploader">
-                <template slot="clip-uploader-action">
                   <div class="uploader-action">
                     <div class="dz-message">
                       Click here or drag and drop CSV file
+                      <input accept=".csv" type="file" class="hide_file" @change="parseFile($event)">
                     </div>
                   </div>
-                </template>
-                <template slot="clip-uploader-body" scope="props">
-                  <div v-for="file in props.files" class="uploader-files">
                     <div class="text-xs-center">
-                      <v-chip close v-model="chip" outline class="green green--text">{{ file.name }}</v-chip>
+                      <v-chip @input="onChipClose()" close v-model="chip" outline class="green green--text">{{ csvName }}</v-chip>
                     </div>
-                  </div>
-                </template>
-              </vue-clip>
             </v-flex>
           </v-layout>
           <v-btn :loading="loading" :disabled="loading" @click.native="loader = 'loading'">
@@ -35,47 +28,44 @@
 
 <script>
 import * as parse from 'csv-parse'
-const s3 = 'https://shifty-csv-upload.s3.amazonaws.com'
 
 export default {
   data () {
     return {
-      options: {
-        url: s3,
-        maxFiles: 1,
-        acceptedFiles: {
-          extensions: ['text/csv'],
-          message: 'Please only upload .csv files'
-        }
-      },
       loader: null,
       loading: false,
-      chip: true,
-      csv: []
+      chip: false,
+      csv: [],
+      csvName: ''
     }
   },
   methods: {
-    addedFile (file) {
-      const headers = new Headers({})
-      const init = {
-        headers: headers,
-        method: 'GET',
-        mode: 'cors'
-      }
-      fetch(`${s3}/${file.name}`, init)
-      .then(response => {
-        const parser = parse({ delimiter: ':' })
-        parser.on('readable', () => {
-          let shift = parser.read()
-          while (shift) {
-            this.$data.csv.push(shift)
-            shift = parser.read()
+    parseFile (event) {
+      const file = event.target.files[0]
+      this.$data.csvName = file.name
+      this.$data.chip = true
+      const reader = new FileReader()
+      reader.onload = e => {
+        parse(reader.result, (err, data) => {
+          if (err) {
+            console.error(err)
+          } else {
+            const headers = data[0]
+            let shift = {}
+            for (let x = 1; x < data.length; x++) {
+              for (let y = 0; y < data[0].length; y++) {
+                shift[headers[y]] = data[x][y]
+              }
+              this.$data.csv.push(shift)
+            }
           }
         })
-        parser.on('error', error => { console.log(error.message) })
-        parser.on('finish', () => { console.log(this.$data.csv) })
-      })
-      .catch(reason => { console.log(reason) })
+      }
+      reader.onerror = error => { console.error(error) }
+      reader.readAsText(file)
+    },
+    onChipClose () {
+      this.$data.csv = []
     }
   },
   watch: {
@@ -92,39 +82,33 @@ export default {
 </script>
 
 <style>
-.uploader {
-  max-width: 400px;
-  height: 200px;
-  display: flex;
-  border-radius: 6px;
-  box-shadow: 1px 2px 19px rgba(195, 195, 195, 0.43);
-  flex-direction: column-reverse;
-  background: #fff;
-}
-
-.uploader * {
-  box-sizing: border-box;
-}
-
 .uploader-action {
-  padding: 20px;
+  padding: 30px;
   background: #f1f5ff;
   cursor: pointer;
+  height: 200px;
+  max-width: 400px;
 }
 
 .uploader-action .dz-message {
   color: #94a7c2;
   text-align: center;
-  padding: 20px 40px;
+  padding: 40px 40px;
   border: 3px dashed #dfe8fe;
   border-radius: 4px;
   font-size: 16px;
 }
 
-.uploader-files {
-  flex: 1;
-  padding: 15px 10px 0px 10px;
-  font-size: 16px;
+.hide_file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 200px;
+    font-size: 24px;
+    max-width: 400px;
 }
 
 .custom-loader {
