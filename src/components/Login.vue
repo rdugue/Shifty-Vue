@@ -9,16 +9,14 @@
                                     v-model="form.company"
                                     v-validate="'required'"
                                     name="company" 
-                                    label="Company Id" 
-                                    single-line></v-text-field>
+                                    label="Company Id"></v-text-field>
                             </v-flex>
                             <v-flex xs10 offset-sm1>
                                 <v-text-field
                                     v-model="form.userId"
                                     v-validate="'required'"
                                     name="userId" 
-                                    label="Employee Id" 
-                                    single-line></v-text-field>
+                                    label="Employee Id"></v-text-field>
                             </v-flex>
                             <v-flex xs10 offset-sm1>
                                 <v-text-field
@@ -26,8 +24,7 @@
                                     v-validate="'required'"
                                     name="password" 
                                     label="Password"
-                                    type="password"
-                                    single-line></v-text-field>
+                                    type="password"></v-text-field>
                             </v-flex>
                             <v-flex xs10 offset-sm6>
                                 <v-btn flat>Register Here</v-btn>
