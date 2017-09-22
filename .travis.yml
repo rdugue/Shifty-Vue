@@ -1,0 +1,12 @@
+addons:
+  apt:
+    packages:
+    - xvfb
+install:
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+- nvm install 7
+- npm install -g yarn xvfb-maybe
+- yarn
+script:
+- npm test
