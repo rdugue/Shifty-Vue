@@ -2,6 +2,12 @@
 
 > Shifty: An HR tool for hourly shift management.
 
+## Back-end 
+
+For instructions on deploying a back-end to work with this, see the following:
+- [Auth back-end](https://github.com/rdugue/Shifty-Auth)
+- [API back-end](https://github.com/rdugue/Shifty-API)
+
 ## Build Setup
 
 ``` bash
