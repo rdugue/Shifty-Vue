@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 const BASE = 'https://bqwpm15znk.execute-api.us-east-1.amazonaws.com/dev'
 const headers = new Headers({
   'Accept': 'appication/json',
