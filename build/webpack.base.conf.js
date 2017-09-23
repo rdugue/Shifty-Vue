@@ -10,7 +10,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: ['whatwg-fetch', './src/main.js']
+    app: ['whatwg-fetch', 'babel-polyfill', './src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
