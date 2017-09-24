@@ -6,6 +6,7 @@
                 <v-layout row wrap>
                             <v-flex xs10 offset-sm1>
                                 <v-text-field 
+                                    class="company"
                                     v-model="form.company"
                                     v-validate="'required'"
                                     name="company" 
@@ -13,6 +14,7 @@
                             </v-flex>
                             <v-flex xs10 offset-sm1>
                                 <v-text-field
+                                    class="userId"
                                     v-model="form.userId"
                                     v-validate="'required'"
                                     name="userId" 
@@ -20,6 +22,7 @@
                             </v-flex>
                             <v-flex xs10 offset-sm1>
                                 <v-text-field
+                                    class="password"
                                     v-model="form.password"
                                     v-validate="'required'"
                                     name="password" 

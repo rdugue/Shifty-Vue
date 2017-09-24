@@ -10,7 +10,7 @@ describe('Login.vue', () => {
   })
 
   it('should return true for isNotFilled when form is partially filled', () => {
-    vm.$data.form.company = 'AbleSoft'
+    vm.$el.querySelector('.company input').textContent = 'AbleSoft'
     expect(vm.$data.isNotFilled).to.equal(true)
   })
 
@@ -20,7 +20,9 @@ describe('Login.vue', () => {
       userId: 'ralph',
       password: 'a1b2c3d4'
     }
-    vm.$data.form = form
+    vm.$el.querySelector('.company').textContent = form.company
+    vm.$el.querySelector('.userId').textContent = form.userId
+    vm.$el.querySelector('.password').textContent = form.password
     expect(vm.$data.isNotFilled).to.equal(false)
   })
 })
