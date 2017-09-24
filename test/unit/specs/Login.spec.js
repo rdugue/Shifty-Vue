@@ -10,7 +10,7 @@ describe('Login.vue', () => {
   })
 
   it('should return true for isNotFilled when form is partially filled', () => {
-    vm.$el.querySelector('.company input').setAttribute('text', 'AbleSoft')
+    vm.$el.querySelector('.company').setAttribute('text', 'AbleSoft')
     expect(vm.$data.isNotFilled).to.equal(true)
   })
 
