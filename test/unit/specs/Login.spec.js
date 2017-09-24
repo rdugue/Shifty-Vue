@@ -6,12 +6,14 @@ describe('Login.vue', () => {
   const vm = new Constructor().$mount()
 
   it('should return true for isNotFilled when form is blank', () => {
-    expect(vm.$data.isNotFilled).to.equal(true)
+    expect(vm.isNotFilled).to.equal(true)
   })
 
   it('should return true for isNotFilled when form is partially filled', () => {
     vm.$el.querySelector('.company').textContent = 'AbleSoft'
-    expect(vm.$data.isNotFilled).to.equal(true)
+    Vue.nextTick(() => {
+      expect(vm.isNotFilled).to.equal(true)
+    })
   })
 
   it('should return false for isNotFilled when form is filled', () => {
@@ -23,6 +25,8 @@ describe('Login.vue', () => {
     vm.$el.querySelector('.company').textContent = form.company
     vm.$el.querySelector('.userId').textContent = form.userId
     vm.$el.querySelector('.password').textContent = form.password
-    expect(vm.$data.isNotFilled).to.equal(false)
+    Vue.nextTick(() => {
+      expect(vm.isNotFilled).to.equal(false)
+    })
   })
 })
