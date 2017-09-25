@@ -1,5 +1,5 @@
 # Shifty-vue
-
+[![Build Status](https://travis-ci.org/rdugue/Shifty-Vue.svg?branch=master)](https://travis-ci.org/rdugue/Shifty-Vue)
 > Shifty: An HR tool for hourly shift management.
 
 ## Back-end 
