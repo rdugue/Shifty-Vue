@@ -30,7 +30,7 @@
                                     type="password"></v-text-field>
                             </v-flex>
                             <v-flex xs10 offset-sm6>
-                                <v-btn flat>Register Here</v-btn>
+                                <v-btn flat @click="goToRegister()">Register Here</v-btn>
                                 <v-btn primary :disabled="isNotFilled" @click="login(form)">Login</v-btn>
                             </v-flex>
                 </v-layout>
@@ -59,6 +59,9 @@ export default {
     }
   },
   methods: {
+    goToRegister () {
+      this.$router.push({ name: 'Register' })
+    },
     ...mapActions({
       login: 'login'
     })
