@@ -24,6 +24,20 @@ const actions = {
       }
     })
     .catch(reason => { console.log(reason) })
+  },
+  register ({ commit }, creds) {
+    employees.register(creds)
+    .then(body => {
+      if (body.error) {
+        console.log(body.error)
+      } else {
+        const user = body.data
+        commit(types.GET_USER, { user })
+        window.localStorage.setItem('JWT_TOKEN', body.token)
+        router.push({ name: 'Dashboard' })
+      }
+    })
+    .catch(reason => { console.log(reason) })
   }
 }
 

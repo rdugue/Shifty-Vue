@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 import Main from '@/components/containers/Main'
 import Dashboard from '@/components/containers/Dashboard'
 
@@ -10,6 +11,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
+      redirect: { name: 'Dashboard' },
       name: 'Main',
       component: Main,
       beforeEnter: (to, from, next) => {
@@ -32,6 +34,11 @@ export default new VueRouter({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })
