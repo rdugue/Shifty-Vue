@@ -1,8 +1,11 @@
 <template>
-  <v-container fluid>
+<v-app class="grey">
+  <main>
+    <v-container fluid fill-height>
+      <v-flex xs8 offset-sm2>
     <v-layout row wrap>
-      <v-flex xs12 sm6 offset-sm3>
-        <form class="lime">
+      <v-flex xs6 sm6 offset-sm3>
+        <form class="white">
           <v-layout row wrap>
             <v-flex xs4 offset-sm1>
               <v-text-field
@@ -53,15 +56,18 @@
                   label="Password"
                   type="password"></v-text-field>
             </v-flex>
-            <v-flex xs10 offset-sm6>
+            <v-flex xs10 offset-sm4>
                 <v-btn flat @click="goToLogin()">Login Here</v-btn>
-                <v-btn primary :disabled="isNotFilled" @click="register(form)">Register</v-btn>
+                <v-btn class="red" :disabled="isNotFilled" @click="register(form)">Register</v-btn>
             </v-flex>
           </v-layout>
         </form>
       </v-flex>
     </v-layout>
+      </v-flex>
   </v-container>
+  </main>
+</v-app>
 </template>
 
 <script>

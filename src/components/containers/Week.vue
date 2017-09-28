@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout>
       <v-flex xs8 offset-sm2>
-        <v-card class="primary">
+        <v-card class="red">
           <v-card-title primary-title>
             <v-layout>
               <v-flex xs8>

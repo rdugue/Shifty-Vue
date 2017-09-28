@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs6 offset-sm3>
-        <form class="lime">
+        <form class="red">
           <v-layout row wrap>
             <v-flex xs4 offset-sm1>
               <v-dialog persistent v-model="modal1" lazy>
@@ -39,7 +39,7 @@
             <v-flex xs10 offset-sm1>
               <v-select label="Day" v-model="day" :items="days" v-validate="'required'"></v-select>
             </v-flex>
-            <v-btn @click="submit">submit</v-btn>
+            <v-btn class="white grey--text" @click="submit">submit</v-btn>
           </v-layout>
         </form>
       </v-flex>
