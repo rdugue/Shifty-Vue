@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row v-if="editMode">
       <v-flex xs12 offset-sm3>
-        <v-form class="lime">
+        <v-form class="deep-purple">
           <v-dialog persistent v-model="modal1" lazy>
             <v-text-field slot="activator" label="Start" v-model="shift.start_time" readonly v-validate="'required'"></v-text-field>
             <v-time-picker v-model="shift.start_time" actions>
@@ -40,7 +40,7 @@
     </v-layout>
     <v-layout row v-if="!editMode">
       <v-flex xs12 sm6 offset-sm3>
-        <v-card class="lime">
+        <v-card class="deep-purple">
           <v-card-title>
             <div>
               <span>{{ shift.role }}</span><br>

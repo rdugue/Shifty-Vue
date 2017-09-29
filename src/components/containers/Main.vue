@@ -1,11 +1,11 @@
 <template>
-  <v-app toolbar footer>
+  <v-app toolbar footer class="white" dark>
     <drawer v-if="drawer"></drawer>
-    <toolbar ></toolbar>
+    <toolbar class="red"></toolbar>
     <main>
       <router-view></router-view>
     </main>
-    <v-footer class="primary">
+    <v-footer class="red">
       <span class="white--text">© 2017</span>
     </v-footer>
   </v-app>
