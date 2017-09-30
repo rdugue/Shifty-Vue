@@ -8,7 +8,7 @@
                   <div class="uploader-action">
                     <div class="dz-message">
                       Click here or drag and drop CSV file
-                      <input accept=".csv" type="file" class="hide_file" @change="parseFile($event)">
+                      <input id="csv" accept=".csv" type="file" class="hide_file" @change="parseFile($event)">
                     </div>
                   </div>
                     <div class="text-xs-center">
@@ -71,9 +71,14 @@ export default {
     },
     onChipClose () {
       this.$data.csv = []
+      document.getElementById('csv').value = ''
     },
     onClickUpload () {
       this.$store.dispatch('uploadShifts', this.$data.csv)
+      .then(() => {
+        document.getElementById('csv').value = ''
+        this.$data.chip = false
+      })
       .catch(reason => { console.error(reason) })
     }
   },
