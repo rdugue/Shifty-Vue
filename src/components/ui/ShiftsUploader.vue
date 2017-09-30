@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs6 offset-sm3>
-        <v-card class="lime">
+        <v-card class="red">
           <v-layout>
             <v-flex xs8 offset-sm2>
                   <div class="uploader-action">
@@ -12,7 +12,7 @@
                     </div>
                   </div>
                     <div class="text-xs-center">
-                      <v-chip @input="onChipClose()" close v-model="chip" outline class="green green--text">{{ csvName }}</v-chip>
+                      <v-chip @input="onChipClose()" close v-model="chip" outline class="white white--text">{{ csvName }}</v-chip>
                     </div>
             </v-flex>
           </v-layout>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import * as parse from 'csv-parse'
 
 export default {
@@ -39,6 +40,9 @@ export default {
       csvName: ''
     }
   },
+  computed: mapGetters({
+    user: 'loggedInUser'
+  }),
   methods: {
     parseFile (event) {
       const file = event.target.files[0]
@@ -56,6 +60,7 @@ export default {
               for (let y = 0; y < data[0].length; y++) {
                 shift[headers[y]] = data[x][y]
               }
+              shift.company = this.user.company
               this.$data.csv.push(shift)
             }
           }
@@ -72,10 +77,12 @@ export default {
     loader () {
       const l = this.loader
       this[l] = !this[l]
-
-      setTimeout(() => (this[l] = false), 3000)
-
-      this.loader = null
+      this.$store.dispatch('uploadShifts', this.$data.csv)
+      .then(() => { this.loader = null })
+      .catch(reason => {
+        this.loader = null
+        console.error(reason)
+      })
     }
   }
 }

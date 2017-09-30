@@ -5,7 +5,7 @@
     <main>
       <router-view></router-view>
     </main>
-    <v-footer class="red">
+    <v-footer class="red" fixed>
       <span class="white--text">© 2017</span>
     </v-footer>
   </v-app>
