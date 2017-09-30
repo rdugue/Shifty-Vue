@@ -50,6 +50,7 @@
 <script>
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
+import { mapGetters } from 'vuex'
 
 Vue.use(VeeValidate)
 
@@ -74,6 +75,9 @@ export default {
       ]
     }
   },
+  computed: mapGetters({
+    user: 'loggedInUser'
+  }),
   methods: {
     submit () {
       this.$validator.validateAll()
@@ -85,7 +89,7 @@ export default {
               employee: this.$data.employee,
               role: this.$data.role,
               day: this.$data.day,
-              company: 'AbleSoft'
+              company: this.user.company
             }
             console.log(shift)
             this.$store.dispatch('createShift', shift)

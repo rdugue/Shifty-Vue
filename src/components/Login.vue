@@ -18,7 +18,7 @@
               </v-flex>
               <v-flex xs10 offset-sm3>
                 <v-btn flat @click="goToRegister()">Register Here</v-btn>
-                <v-btn class="red" :disabled="isNotFilled" @click="login(form)">Login</v-btn>
+                <v-btn class="red white--text" :disabled="isNotFilled" @click="login(form)">Login</v-btn>
               </v-flex>
             </v-layout>
           </form>

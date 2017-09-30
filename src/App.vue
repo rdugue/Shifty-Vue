@@ -1,7 +1,5 @@
 <template>
-  <v-app toolbar footer>
-    <router-view></router-view>
-  </v-app>
+  <router-view></router-view>
 </template>
 
 <script>
