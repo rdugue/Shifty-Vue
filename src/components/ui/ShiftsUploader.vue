@@ -16,7 +16,7 @@
                     </div>
             </v-flex>
           </v-layout>
-          <v-btn :loading="loading" :disabled="loading" @click.native="loader = 'loading'">
+          <v-btn :loading="loading" :disabled="loading" @click="loader = 'loading'; onClickUpload()">
             upload
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>
@@ -71,18 +71,18 @@ export default {
     },
     onChipClose () {
       this.$data.csv = []
+    },
+    onClickUpload () {
+      this.$store.dispatch('uploadShifts', this.$data.csv)
+      .catch(reason => { console.error(reason) })
     }
   },
   watch: {
     loader () {
       const l = this.loader
       this[l] = !this[l]
-      this.$store.dispatch('uploadShifts', this.$data.csv)
-      .then(() => { this.loader = null })
-      .catch(reason => {
-        this.loader = null
-        console.error(reason)
-      })
+      setTimeout(() => (this[l] = false), 1000)
+      this.loader = null
     }
   }
 }
