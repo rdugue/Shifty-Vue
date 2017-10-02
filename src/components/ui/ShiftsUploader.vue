@@ -55,13 +55,13 @@ export default {
             console.error(err)
           } else {
             const headers = data[0]
-            let shift = {}
             for (let x = 1; x < data.length; x++) {
+              let shift = {}
               for (let y = 0; y < data[0].length; y++) {
                 shift[headers[y]] = data[x][y]
               }
               shift.company = this.user.company
-              this.$data.csv.push(shift)
+              this.csv.push(shift)
             }
           }
         })
