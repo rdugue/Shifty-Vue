@@ -88,7 +88,6 @@ const mutations = {
     state.shifts.push(shift)
   },
   [types.UPLOAD_SHIFTS] (state, { uploads }) {
-    console.log(uploads)
     uploads.forEach(shift => { state.shifts.push(shift) })
   }
 }
