@@ -1,6 +1,6 @@
 <template>
     <v-flex xs4 sm4 offset-sm1>
-      <v-card>
+      <v-card class="primary">
         <v-card-title primary-title>
           <div class="headline">{{ day }}</div>
         </v-card-title>

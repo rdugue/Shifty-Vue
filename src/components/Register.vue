@@ -1,5 +1,5 @@
 <template>
-<v-app class="grey">
+<v-app>
   <main>
     <v-container fluid fill-height>
       <v-flex xs8 offset-sm2>
@@ -58,7 +58,7 @@
             </v-flex>
             <v-flex xs10 offset-sm4>
                 <v-btn flat @click="goToLogin()">Login Here</v-btn>
-                <v-btn class="red" :disabled="isNotFilled" @click="register(form)">Register</v-btn>
+                <v-btn class="primary" :disabled="isNotFilled" @click="register(form)">Register</v-btn>
             </v-flex>
           </v-layout>
         </form>

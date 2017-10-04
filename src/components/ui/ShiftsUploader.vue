@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs6 offset-sm3>
-        <v-card class="red">
+        <v-card class="white">
           <v-layout>
             <v-flex xs8 offset-sm2>
                   <div class="uploader-action">
@@ -12,11 +12,11 @@
                     </div>
                   </div>
                     <div class="text-xs-center">
-                      <v-chip @input="onChipClose()" close v-model="chip" outline class="white white--text">{{ csvName }}</v-chip>
+                      <v-chip @input="onChipClose()" close v-model="chip" outline class="primary">{{ csvName }}</v-chip>
                     </div>
             </v-flex>
           </v-layout>
-          <v-btn :loading="loading" :disabled="loading" @click="loader = 'loading'; onClickUpload()">
+          <v-btn class="primary" :loading="loading" :disabled="loading" @click="loader = 'loading'; onClickUpload()">
             upload
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>

@@ -2,11 +2,11 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs6 offset-sm3>
-        <form class="red">
+        <form class="white">
           <v-layout row wrap>
             <v-flex xs4 offset-sm1>
               <v-dialog persistent v-model="modal1" lazy>
-                <v-text-field slot="activator" label="Start" v-model="start" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
+                <v-text-field light slot="activator" label="Start" v-model="start" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
                 <v-time-picker v-model="start" actions>
                   <template scope="{ save, cancel }">
                     <v-card-actions>
@@ -19,8 +19,8 @@
             </v-flex>
             <v-flex xs4 offset-sm1>
               <v-dialog persistent v-model="modal2" lazy>
-                <v-text-field slot="activator" label="End" v-model="end" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
-                <v-time-picker v-model="end" actions>
+                <v-text-field light slot="activator" label="End" v-model="end" prepend-icon="access_time" readonly v-validate="'required'"></v-text-field>
+                <v-time-picker light v-model="end" actions>
                   <template scope="{ save, cancel }">
                     <v-card-actions>
                       <v-btn flat primary @click.native="cancel()">Cancel</v-btn>
@@ -31,15 +31,15 @@
               </v-dialog>
             </v-flex>
             <v-flex xs10 offset-sm1>
-              <v-text-field label="Employee" v-model="employee" v-validate="'required'"></v-text-field>
+              <v-text-field light label="Employee" v-model="employee" v-validate="'required'"></v-text-field>
             </v-flex>
             <v-flex xs10 offset-sm1>
-              <v-text-field label="Role" v-model="role" v-validate="'required'"></v-text-field>
+              <v-text-field light label="Role" v-model="role" v-validate="'required'"></v-text-field>
             </v-flex>
             <v-flex xs10 offset-sm1>
-              <v-select label="Day" v-model="day" :items="days" v-validate="'required'"></v-select>
+              <v-select light label="Day" v-model="day" :items="days" v-validate="'required'"></v-select>
             </v-flex>
-            <v-btn class="white grey--text" @click="submit">submit</v-btn>
+            <v-btn class="primary" @click="submit">submit</v-btn>
           </v-layout>
         </form>
       </v-flex>

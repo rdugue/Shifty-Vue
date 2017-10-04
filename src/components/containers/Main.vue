@@ -18,7 +18,7 @@
             <img src="https://randomuser.me/api/portraits/men/85.jpg" />
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title>Ralph Dugue</v-list-tile-title>
+            <v-list-tile-title>{{ user.first_name }} {{ user.last_name }}</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-btn icon @click.stop="mini = !mini">
@@ -42,9 +42,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="red">
+    <v-toolbar class="primary">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Shifty</v-toolbar-title>
+      <v-toolbar-title>Shifty</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="logOut()">
         <v-icon>exit_to_app</v-icon>
@@ -53,13 +53,15 @@
         <v-icon>more_vert</v-icon>
       </v-btn>
     </v-toolbar>
-    <main class="grey">
+    <main>
       <router-view></router-view>
     </main>
   </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
@@ -79,9 +81,16 @@ export default {
     }
   },
   methods: {
+    logOut () {
+      window.localStorage.clear()
+      this.$router.push('/login')
+    },
     navigate (item) {
       //
     }
-  }
+  },
+  computed: mapGetters({
+    user: 'loggedInUser'
+  })
 }
 </script>
