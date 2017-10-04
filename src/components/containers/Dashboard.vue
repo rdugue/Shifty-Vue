@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-layout>
+    <v-layout class="secondary">
       <v-flex xs10 offset-sm2>
         <shift-uploader v-if="text === 'upload'"></shift-uploader>
         <shift-form v-if="text === 'form'"></shift-form>
