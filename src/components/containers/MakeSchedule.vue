@@ -12,19 +12,16 @@
         </v-btn-toggle>
       </v-flex>
     </v-layout>
-    <week></week>
   </div>
 </template>
 <script>
 import ShiftForm from '../ui/ShiftForm'
 import ShiftsUploader from '../ui/ShiftsUploader'
-import Week from './Week'
 
 export default {
   components: {
     'shift-form': ShiftForm,
-    'shift-uploader': ShiftsUploader,
-    'week': Week
+    'shift-uploader': ShiftsUploader
   },
   data () {
     return {

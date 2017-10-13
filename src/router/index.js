@@ -4,6 +4,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Main from '@/components/containers/Main'
 import Dashboard from '@/components/containers/Dashboard'
+import MakeSchedule from '@/components/containers/MakeSchedule'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ export default new VueRouter({
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
+        },
+        {
+          path: 'make-schedule',
+          name: 'Make Schedule',
+          component: MakeSchedule
         }
       ]
     },

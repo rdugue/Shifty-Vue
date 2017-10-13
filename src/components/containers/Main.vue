@@ -1,5 +1,5 @@
 <template>
-  <v-app toolbar dark>
+  <v-app toolbar dark class="secondary">
     <v-navigation-drawer 
       persistent 
       v-model="drawer" 
@@ -86,7 +86,7 @@ export default {
       this.$router.push('/login')
     },
     navigate (item) {
-      //
+      this.$router.push({ name: item.title })
     }
   },
   computed: mapGetters({
